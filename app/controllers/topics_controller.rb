@@ -1,10 +1,11 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: [:show, :edit, :update, :destroy]
+  before_action :set_topic, only: [:show, :edit]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @topics = Topic.all
   end
+
   def new
     @topic = Topic.new
   end
@@ -16,25 +17,12 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new(topic_params)
+    @topic = current_user.topics.build(topic_params)
     if @topic.save
       redirect_to @topic, notice: 'Topic was successfully created.'
     else
       render action: 'new'
     end
-  end
-
-  def update
-    if @topic.update(pin_params)
-      redirect_to @topic, notice: 'Topic was successfully updated.'
-    else
-      render action: 'edit'
-    end
-  end
-
-  def destroy
-    @topic.destroy
-    redirect_to topics_url
   end
 
   private
