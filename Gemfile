@@ -12,6 +12,7 @@ gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.0.3.0'
 gem 'devise', '~> 3.1.1'
 gem "figaro"
+gem 'friendly_id', '~> 5.0.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

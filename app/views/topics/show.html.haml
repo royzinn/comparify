@@ -5,9 +5,14 @@
     .jumbotron
       %h1= "#{@topic.first_subject} Vs #{@topic.second_subject}"
       %p.lead= @topic.question
-      %small
-        asked by
-        %a{href: "#"} John
+      .ui-group-buttons
+        %button.btn.btn-primary{type: "button"} Vote For #{@topic.first_subject}
+        .or.or-lg
+        %button.btn.btn-success{type: "button"} Vote For #{@topic.second_subject}
+      .p
+        %small
+          asked by
+          %a{href: "#"} John
     .comment.col-8.col-sm-8.col-lg-6
       .row
         .media

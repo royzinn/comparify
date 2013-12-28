@@ -15,6 +15,12 @@ describe TopicsController do
         let(:action) { get :new }
       end
     end
+
+    describe "POST create" do
+      it_behaves_like "require_sign_in" do
+        let(:action) { post :create, topic: Fabricate.attributes_for(:topic) }
+      end
+    end
   end
 
   context "authenticated users" do
@@ -37,10 +43,6 @@ describe TopicsController do
       end
     end
 
-    describe "POST create" do
-      it_behaves_like "require_sign_in" do
-        let(:action) { post :create, topic: Fabricate.attributes_for(:topic) }
-      end
-    end
+
   end
 end
