@@ -5,10 +5,13 @@
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
+    %link{href: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", rel: "stylesheet"}/
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
   %body
     = render 'layouts/header'
     .container
-      - flash.each do |name, msg|
-        = content_tag(:div, msg, class: "alert alert-info")
+      - flash.each do |type, message|
+        %div{class: "alert #{bootstrap_class_for(type)} fade in"}
+          %button.close{"data-dismiss" => "alert"} ×
+          = message
       = yield

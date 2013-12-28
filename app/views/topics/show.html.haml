@@ -1,0 +1,101 @@
+.row.row-offcanvas.row-offcanvas-right
+  .col-xs-12.col-sm-9
+    %p.pull-right.visible-xs
+      %button.btn.btn-primary.btn-xs{"data-toggle" => "offcanvas", type: "button"} Toggle nav
+    .jumbotron
+      %h1= "#{@topic.first_subject} Vs #{@topic.second_subject}"
+      %p.lead= @topic.question
+      %small
+        asked by
+        %a{href: "#"} John
+    .comment.col-8.col-sm-8.col-lg-6
+      .row
+        .media
+          %a.pull-left{href: "#"}
+            %img.media-object.dp.img-circle{src: "http://www.huffmancode.com/img/hardik.jpg"}/
+          .media-body
+            %p Rails is much better at scaling because you never know how much its dflkgjhs;fklhj s;lkfgjsf;lkghj sd;flkgsdflgk
+          %div
+            %p
+              %i.fa.fa-user
+              by
+              %a{href: "#"} John
+              |
+              %i.fa.fa-calendar
+              Sept 16th, 2012 |
+              %i.fa.fa-chevron-circle-up
+              vote up
+      %hr/
+      .row
+        .media
+          %a.pull-left{href: "#"}
+            %img.media-object{src: "http://placehold.it/64x64"}/
+          .media-body
+            %p Rails is much better at scaling because you never know how much its dflkgjhs;fklhj s;lkfgjsf;lkghj sd;flkgsdflgk
+          %div
+            %p
+              %i.fa.fa-user
+              by
+              %a{href: "#"} John
+              |
+              %i.fa.fa-calendar
+              Sept 16th, 2012 |
+              %i.fa.fa-chevron-circle-up
+              vote up
+    .comment.col-8.col-sm-8.col-lg-6
+      .row
+        .media
+          %a.pull-left{href: "#"}
+            %img.media-object{src: "http://placehold.it/24x24"}/
+          .media-body
+            %p Rails is much better at scaling because you never know how much its dflkgjhs;fklhj s;lkfgjsf;lkghj sd;flkgsdflgk
+          %div
+            %p
+              %i.fa.fa-user
+              by
+              %a{href: "#"} John
+              |
+              %i.fa.fa-calendar
+              Sept 16th, 2012 |
+              %i.fa.fa-chevron-circle-up
+              vote up
+      %hr/
+      .row
+        .media
+          %a.pull-left{href: "#"}
+            %img.media-object{src: "http://placehold.it/64x64"}/
+          .media-body
+            %p Rails is much better at scaling because you never know how much its dflkgjhs;fklhj s;lkfgjsf;lkghj sd;flkgsdflgk
+          %div
+            %p
+              %i.fa.fa-user
+              by
+              %a{href: "#"} John
+              |
+              %i.fa.fa-calendar
+              Sept 16th, 2012 |
+              %i.fa.fa-chevron-circle-up
+              vote up
+  #sidebar.col-xs-6.col-sm-3.sidebar-offcanvas{role: "navigation"}
+    .well.sidebar-nav
+      %ul.nav
+        %li Sidebar
+        %li.active
+          %a{href: "#"} Link
+        %li
+          %a{href: "#"} Link
+        %li
+          %a{href: "#"} Link
+        %li Sidebar
+        %li
+          %a{href: "#"} Link
+        %li
+          %a{href: "#"} Link
+        %li
+          %a{href: "#"} Link
+        %li Sidebar
+        %li
+          %a{href: "#"} Link
+        %li
+          %a{href: "#"} Link
+    / /.well

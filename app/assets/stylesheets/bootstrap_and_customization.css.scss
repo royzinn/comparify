@@ -17,3 +17,60 @@ $jumbotron-bg: white;
 .navbar-brand {
   font-weight: bold;
 }
+
+footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.jumbotron {
+  text-align: center;
+  background-color: white;
+}
+
+.comment {
+  background-color: white;
+}
+
+.media
+{
+  margin: 20px 0;
+  padding: 30px;
+}
+.dp
+{
+  border:3px solid #eee;
+  transition: all 0.2s ease-in-out;
+  width: 64px;
+  height: 64;
+}
+/*       * Off Canvas       * --------------------------------------------------       */
+@media screen and(max-width: 768px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+  .row-offcanvas-right .sidebar-offcanvas {
+    right: -50%;
+    /* 6 columns */
+  }
+  .row-offcanvas-left .sidebar-offcanvas {
+    left: -50%;
+    /* 6 columns */
+  }
+  .row-offcanvas-right.active {
+    right: 50%;
+    /* 6 columns */
+  }
+  .row-offcanvas-left.active {
+    left: 50%;
+    /* 6 columns */
+  }
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    /* 6 columns */
+  }
+}
