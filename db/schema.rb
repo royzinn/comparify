@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131228112008) do
+ActiveRecord::Schema.define(version: 20131228183810) do
+
+  create_table "answers", force: true do |t|
+    t.string   "body"
+    t.integer  "referred_subject"
+    t.integer  "user_id"
+    t.integer  "topic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "answers", ["topic_id"], name: "index_answers_on_topic_id"
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id"
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false

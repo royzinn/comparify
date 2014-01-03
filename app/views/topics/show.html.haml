@@ -3,12 +3,14 @@
     %p.pull-right.visible-xs
       %button.btn.btn-primary.btn-xs{"data-toggle" => "offcanvas", type: "button"} Toggle nav
     .jumbotron
-      %h1= "#{@topic.first_subject} Vs #{@topic.second_subject}"
+      %h1= "#{@topic.first_subject.titleize} Vs #{@topic.second_subject.titleize}"
       %p.lead= @topic.question
       .ui-group-buttons
-        %button.btn.btn-primary{type: "button"} Vote For #{@topic.first_subject}
+        = link_to "Your Answer On #{@topic.first_subject.titleize}", topic_answers_path(@topic.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#newAnswerModal', :class => 'btn btn-primary'}
+        / %button.btn.btn-primary{"data-target" => "#newAnswerModal", "data-toggle" => "modal"} Your Answer On #{@topic.first_subject.titleize}
+        / %button.btn.btn-primary{type: "button"} Vote For #{@topic.first_subject}
         .or.or-lg
-        %button.btn.btn-success{type: "button"} Vote For #{@topic.second_subject}
+        %button.btn.btn-success{type: "button"} Your Answer On #{@topic.second_subject.titleize}
       .p
         %small
           asked by
@@ -104,3 +106,17 @@
         %li
           %a{href: "#"} Link
     / /.well
+#newAnswerModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4#myModalLabel.modal-title Modal title
+      .modal-body
+        hello, this is the modal body
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+        %button.btn.btn-primary{type: "button"} Save changes
+    / /.modal-content
+  / /.modal-dialog
+/ /.modal
