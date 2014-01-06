@@ -42,7 +42,5 @@ describe TopicsController do
         assigns(:topic).should eq(topic)
       end
     end
-
-
   end
 end

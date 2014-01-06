@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131228183810) do
+ActiveRecord::Schema.define(version: 20140103151044) do
 
   create_table "answers", force: true do |t|
-    t.string   "body"
+    t.text     "body"
     t.integer  "referred_subject"
     t.integer  "user_id"
     t.integer  "topic_id"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20131228183810) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "slug"
+    t.integer  "answers_count"
   end
 
   add_index "topics", ["first_subject", "second_subject"], name: "index_topics_on_first_subject_and_second_subject"

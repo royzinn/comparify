@@ -6,83 +6,17 @@
       %h1= "#{@topic.first_subject.titleize} Vs #{@topic.second_subject.titleize}"
       %p.lead= @topic.question
       .ui-group-buttons
-        = link_to "Your Answer On #{@topic.first_subject.titleize}", topic_answers_path(@topic.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#newAnswerModal', :class => 'btn btn-primary'}
-        / %button.btn.btn-primary{"data-target" => "#newAnswerModal", "data-toggle" => "modal"} Your Answer On #{@topic.first_subject.titleize}
-        / %button.btn.btn-primary{type: "button"} Vote For #{@topic.first_subject}
+        = new_answer_link(@topic, :first)
         .or.or-lg
-        %button.btn.btn-success{type: "button"} Your Answer On #{@topic.second_subject.titleize}
+        = new_answer_link(@topic, :second)
       .p
         %small
           asked by
           %a{href: "#"} John
     .comment.col-8.col-sm-8.col-lg-6
-      .row
-        .media
-          %a.pull-left{href: "#"}
-            %img.media-object.dp.img-circle{src: "http://www.huffmancode.com/img/hardik.jpg"}/
-          .media-body
-            %p Rails is much better at scaling because you never know how much its dflkgjhs;fklhj s;lkfgjsf;lkghj sd;flkgsdflgk
-          %div
-            %p
-              %i.fa.fa-user
-              by
-              %a{href: "#"} John
-              |
-              %i.fa.fa-calendar
-              Sept 16th, 2012 |
-              %i.fa.fa-chevron-circle-up
-              vote up
-      %hr/
-      .row
-        .media
-          %a.pull-left{href: "#"}
-            %img.media-object{src: "http://placehold.it/64x64"}/
-          .media-body
-            %p Rails is much better at scaling because you never know how much its dflkgjhs;fklhj s;lkfgjsf;lkghj sd;flkgsdflgk
-          %div
-            %p
-              %i.fa.fa-user
-              by
-              %a{href: "#"} John
-              |
-              %i.fa.fa-calendar
-              Sept 16th, 2012 |
-              %i.fa.fa-chevron-circle-up
-              vote up
+      = render 'answers/answer'
     .comment.col-8.col-sm-8.col-lg-6
-      .row
-        .media
-          %a.pull-left{href: "#"}
-            %img.media-object{src: "http://placehold.it/24x24"}/
-          .media-body
-            %p Rails is much better at scaling because you never know how much its dflkgjhs;fklhj s;lkfgjsf;lkghj sd;flkgsdflgk
-          %div
-            %p
-              %i.fa.fa-user
-              by
-              %a{href: "#"} John
-              |
-              %i.fa.fa-calendar
-              Sept 16th, 2012 |
-              %i.fa.fa-chevron-circle-up
-              vote up
-      %hr/
-      .row
-        .media
-          %a.pull-left{href: "#"}
-            %img.media-object{src: "http://placehold.it/64x64"}/
-          .media-body
-            %p Rails is much better at scaling because you never know how much its dflkgjhs;fklhj s;lkfgjsf;lkghj sd;flkgsdflgk
-          %div
-            %p
-              %i.fa.fa-user
-              by
-              %a{href: "#"} John
-              |
-              %i.fa.fa-calendar
-              Sept 16th, 2012 |
-              %i.fa.fa-chevron-circle-up
-              vote up
+      = render 'answers/answer'
   #sidebar.col-xs-6.col-sm-3.sidebar-offcanvas{role: "navigation"}
     .well.sidebar-nav
       %ul.nav
@@ -106,17 +40,16 @@
         %li
           %a{href: "#"} Link
     / /.well
-#newAnswerModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-        %h4#myModalLabel.modal-title Modal title
-      .modal-body
-        hello, this is the modal body
-      .modal-footer
-        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-        %button.btn.btn-primary{type: "button"} Save changes
-    / /.modal-content
-  / /.modal-dialog
-/ /.modal
+    = bootstrap_form_for([@topic, Answer.new], style: :vertical) do |f|
+      #answer-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+        .modal-dialog
+          .modal-content
+            .modal-header
+              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+              %h4#myModalLabel.modal-title You claim that #{@topic.first_subject} is better
+            .modal-body
+              = f.alert_message "Please fix the errors below."
+              = f.text_area :body, hide_label: true, rows: 4, placeholder: "explain..."
+            .modal-footer
+              %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+              = f.submit "Add Answer", class: "btn btn-primary"

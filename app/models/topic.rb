@@ -1,6 +1,7 @@
 class Topic < ActiveRecord::Base
   extend FriendlyId
   belongs_to :user
+  has_many :answers, dependent: :destroy, counter_cache: true
   friendly_id :subjects_with_question, :use => :slugged
   validates :first_subject, presence: true
   validates :second_subject, presence: true
