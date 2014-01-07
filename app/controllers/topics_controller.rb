@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: [:show, :edit]
+  before_action :set_topic, only: [:show]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -10,8 +10,6 @@ class TopicsController < ApplicationController
     @topic = Topic.new
   end
 
-  def edit
-  end
 
   def show
   end

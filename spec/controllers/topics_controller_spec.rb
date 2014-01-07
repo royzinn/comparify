@@ -24,9 +24,20 @@ describe TopicsController do
   end
 
   context "authenticated users" do
-    before do
-      @user = Fabricate(:user)
-      sign_in @user
+    login_user
+
+    describe "POST create" do
+      context "with valid topic" do
+        it "creates new topic" do
+          post :create, topic: Fabricate.attributes_for(:topic)
+          expect(subject.current_user.topics.count).to eq(1)
+        end
+
+        it "redirect to the show page" do
+          post :create, topic: Fabricate.attributes_for(:topic)
+          expect(response).to redirect_to topic_path(Topic.last.friendly_id)
+        end
+      end
     end
 
     describe "GET show" do
