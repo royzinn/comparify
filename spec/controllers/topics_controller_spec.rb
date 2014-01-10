@@ -52,6 +52,18 @@ describe TopicsController do
         get :show, id: topic.id
         assigns(:topic).should eq(topic)
       end
+
+      it "assigns @first_subject_answers and @second_subject_answers" do
+        topic = Fabricate(:topic)
+        answer_1 = Answer.create!(body: "some answer", referred_subject: "first", topic: topic)
+        answer_2 = Answer.create!(body: "some answer", referred_subject: "first", topic: topic)
+        answer_3 = Answer.create!(body: "some answer", referred_subject: "second", topic: topic)
+        answer_4 = Answer.create!(body: "some answer", referred_subject: "second", topic: topic)
+
+        get :show, id: topic.id
+        assigns(:first_subject_answers).should eq([answer_1, answer_2])
+        assigns(:second_subject_answers).should eq([answer_3, answer_4])
+      end
     end
   end
 end

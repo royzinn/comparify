@@ -12,6 +12,9 @@ class TopicsController < ApplicationController
 
 
   def show
+    @first_subject_answers = @topic.answers.supports_first_subject
+    @second_subject_answers = @topic.answers.supports_second_subject
+    @answer = Answer.new
   end
 
   def create

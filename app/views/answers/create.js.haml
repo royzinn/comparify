@@ -1,0 +1,16 @@
+-if @answer.valid?
+  :plain
+    alert('success')
+    $('form').find('textarea').val("")
+    $('#answer-modal').modal('hide')
+    var column_selector = "##{@answer.referred_subject.to_s}" + "_subject_answers"
+    $(column_selector).append('#{j render @answer}');
+
+-else
+  :plain
+    alert('fail')
+    $('#answer-modal').html("#{ j render(partial: 'answers/form', locals: {topic: @topic, answer: @answer}) }");
+    var hidden_field = "<input id='answer_referred_subject' name='answer[referred_subject]' type='hidden' value='#{@answer.referred_subject}'>"
+    $(".modal-body").append(hidden_field)
+
+

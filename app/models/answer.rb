@@ -5,7 +5,7 @@ class Answer < ActiveRecord::Base
 
   SUBJECT_HASH = {first: 1, second: 2}
 
-  scope :supports_first_subject, -> {where(referred_subject: SUBJECT_HASH[:first])}
+  scope :supports_first_subject,  -> {where(referred_subject: SUBJECT_HASH[:first])}
   scope :supports_second_subject, -> {where(referred_subject: SUBJECT_HASH[:second])}
 
 

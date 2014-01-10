@@ -1,0 +1,12 @@
+= bootstrap_form_for([@topic, @answer], remote: true, style: :vertical) do |f|
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4#modalLabel.modal-title Ooops, you naughty dude, trying to submit empty answer?
+      .modal-body
+        = f.alert_message "Please fix the errors below."
+        = f.text_area :body, hide_label: true, rows: 4, placeholder: "explain..."
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+        = f.submit "Add Answer", class: "btn btn-primary"

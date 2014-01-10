@@ -13,43 +13,13 @@
         %small
           asked by
           %a{href: "#"} John
+          / = link_to current_user.email, current_user
     .comment.col-8.col-sm-8.col-lg-6
-      = render 'answers/answer'
+      = render partial: 'answers/answers_column', locals: {column: "first", topic: @topic, answers: @first_subject_answers}
     .comment.col-8.col-sm-8.col-lg-6
-      = render 'answers/answer'
-  #sidebar.col-xs-6.col-sm-3.sidebar-offcanvas{role: "navigation"}
-    .well.sidebar-nav
-      %ul.nav
-        %li Sidebar
-        %li.active
-          %a{href: "#"} Link
-        %li
-          %a{href: "#"} Link
-        %li
-          %a{href: "#"} Link
-        %li Sidebar
-        %li
-          %a{href: "#"} Link
-        %li
-          %a{href: "#"} Link
-        %li
-          %a{href: "#"} Link
-        %li Sidebar
-        %li
-          %a{href: "#"} Link
-        %li
-          %a{href: "#"} Link
-    / /.well
-    = bootstrap_form_for([@topic, Answer.new], style: :vertical) do |f|
-      #answer-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
-        .modal-dialog
-          .modal-content
-            .modal-header
-              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-              %h4#myModalLabel.modal-title You claim that #{@topic.first_subject} is better
-            .modal-body
-              = f.alert_message "Please fix the errors below."
-              = f.text_area :body, hide_label: true, rows: 4, placeholder: "explain..."
-            .modal-footer
-              %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-              = f.submit "Add Answer", class: "btn btn-primary"
+      = render partial: 'answers/answers_column', locals: {column: "second", topic: @topic, answers: @second_subject_answers}
+  = render 'sidebar'
+
+#answer-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "modalLabel", role: "dialog", tabindex: "-1"}
+  = render 'answers/form'
+
