@@ -10,6 +10,11 @@ $jumbotron-bg: white;
 
 @import 'bootstrap';
 
+html,
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+
 .center {
   text-align: center;
 }
@@ -57,8 +62,9 @@ footer {
 .ui-group-buttons .btn{float:left;border-radius:0}
 .ui-group-buttons .btn:first-child{margin-left:0;border-top-left-radius:.25em;border-bottom-left-radius:.25em;padding-right:15px}
 .ui-group-buttons .btn:last-child{border-top-right-radius:.25em;border-bottom-right-radius:.25em;padding-left:15px}
+
 /*       * Off Canvas       * --------------------------------------------------       */
-@media screen and(max-width: 768px) {
+@media screen and(max-width: 992px) {
   .row-offcanvas {
     position: relative;
     -webkit-transition: all 0.25s ease-out;

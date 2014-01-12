@@ -1,6 +1,6 @@
 .row.row-offcanvas.row-offcanvas-right
-  .col-xs-12.col-sm-9
-    %p.pull-right.visible-xs
+  .col-xs-12.col-sm-12.col-md-9
+    %p.pull-right.visible-xs.visible-sm
       %button.btn.btn-primary.btn-xs{"data-toggle" => "offcanvas", type: "button"} Toggle nav
     .jumbotron
       %h1= "#{@topic.first_subject.titleize} Vs #{@topic.second_subject.titleize}"
@@ -14,9 +14,8 @@
           asked by
           %a{href: "#"} John
           / = link_to current_user.email, current_user
-    .comment.col-8.col-sm-8.col-lg-6
+    .row
       = render partial: 'answers/answers_column', locals: {column: "first", topic: @topic, answers: @first_subject_answers}
-    .comment.col-8.col-sm-8.col-lg-6
       = render partial: 'answers/answers_column', locals: {column: "second", topic: @topic, answers: @second_subject_answers}
   = render 'sidebar'
 

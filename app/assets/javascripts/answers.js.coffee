@@ -13,3 +13,6 @@ $(document).ready ->
     $(".alert.alert-danger").remove()
     $(".help-block").remove()
     $('.has-error').removeClass('has-error')
+
+  $("[data-toggle=offcanvas]").click ->
+    $(".row-offcanvas").toggleClass "active"
