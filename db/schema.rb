@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140112213338) do
+ActiveRecord::Schema.define(version: 20140123164916) do
 
   create_table "answers", force: true do |t|
     t.text     "body"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140112213338) do
     t.integer  "answers_count"
   end
 
+  add_index "topics", ["first_subject", "second_subject", "question"], name: "index_on_first_second_question_unique", unique: true
   add_index "topics", ["first_subject", "second_subject"], name: "index_topics_on_first_subject_and_second_subject"
   add_index "topics", ["first_subject"], name: "index_topics_on_first_subject"
   add_index "topics", ["second_subject"], name: "index_topics_on_second_subject"
