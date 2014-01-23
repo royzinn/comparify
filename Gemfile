@@ -28,6 +28,9 @@ group :test, :development do
   gem 'faker'
   gem 'pry'
   gem 'launchy'
+  gem 'spork-rails', '4.0.0'
+  gem 'guard-spork', '1.5.0'
+  gem 'childprocess', '0.3.6'
 end
 
 group :development do
