@@ -1,4 +1,4 @@
-$(document).ready ->
+$(document).on 'ready page:change', ->
   # adding hidden field of the related subject voted on
   $("#answer-modal").on "shown.bs.modal", (e) ->
     $("#answer_referred_subject").remove()
@@ -20,3 +20,10 @@ $(document).ready ->
   # off-canvas of sidebar handling
   $("[data-toggle=offcanvas]").click ->
     $(".row-offcanvas").toggleClass "active"
+
+  $("#new_answer").bind "ajax:error", (event, jqXHR, ajaxSettings, thrownError) ->
+    if jqXHR.status == 401 # thrownError is 'Unauthorized'
+      window.location.replace('/users/sign_in')
+
+  $('#first_subject_button').tooltip('toggle');
+  $('#second_subject_button').tooltip('toggle');

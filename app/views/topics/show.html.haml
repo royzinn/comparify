@@ -12,13 +12,14 @@
       .p
         %small
           asked by
-          %a{href: "#"} John
-          / = link_to current_user.email, current_user
+          = link_to @topic.user.name
+          /%a{href: "#"} John
+
     .row
       = render partial: 'answers/answers_column', locals: {column: "first", topic: @topic, answers: @first_subject_answers}
       = render partial: 'answers/answers_column', locals: {column: "second", topic: @topic, answers: @second_subject_answers}
   = render 'sidebar'
 
-#answer-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "modalLabel", role: "dialog", tabindex: "-1"}
+#answer-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "answer-modal-label", role: "dialog", tabindex: "-1"}
   = render 'answers/form'
 

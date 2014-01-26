@@ -2,6 +2,8 @@ class Answer < ActiveRecord::Base
   belongs_to :user
   belongs_to :topic
   validates :body, presence: true
+  validates :user_id, :uniqueness => { scope: :topic_id,
+                                       message: "You can only have one answer per top" }
 
   SUBJECT_HASH = {first: 1, second: 2}
 
