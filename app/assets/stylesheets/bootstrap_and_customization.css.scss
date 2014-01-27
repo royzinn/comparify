@@ -5,7 +5,6 @@ $font-family-sans-serif: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $navbar-height: 45px;
 $navbar-default-bg: white;
 $navbar-default-brand-color: #c0392b;
-$brand-primary: #c0392b;
 $jumbotron-bg: white;
 
 @import 'bootstrap';
@@ -27,9 +26,13 @@ footer {
   padding-left: 15px;
   padding-right: 15px;
 }
-.jumbotron {
-  text-align: center;
-  background-color: white;
+.container {
+  .jumbotron {
+    text-align: center;
+    background-color: white;
+    padding: 25px 20px 25px 20px;
+    border-radius: 2px;
+  }
 }
 
 .comment {

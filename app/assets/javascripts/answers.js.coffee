@@ -25,5 +25,5 @@ $(document).on 'ready page:change', ->
     if jqXHR.status == 401 # thrownError is 'Unauthorized'
       window.location.replace('/users/sign_in')
 
-  $('#first_subject_button').tooltip('toggle');
-  $('#second_subject_button').tooltip('toggle');
+  $('#first_subject_button').tooltip();
+  $('#second_subject_button').tooltip();

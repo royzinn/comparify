@@ -6,14 +6,21 @@
       %h1= "#{@topic.first_subject.titleize} Vs #{@topic.second_subject.titleize}"
       %p.lead= @topic.question
       .ui-group-buttons
-        = new_answer_link(@topic, :first)
+        = new_answer_link(:first)
         .or.or-lg
-        = new_answer_link(@topic, :second)
+        = new_answer_link(:second)
       .p
         %small
           asked by
           = link_to @topic.user.name
           /%a{href: "#"} John
+      = voters_for_subjects
+      / - unless @first_subject_answers.empty?
+      /   %p
+      /     %span.label.label-primary.pull-left #{@first_subject_answers.count} Voters
+      /     %span.label.label-info.pull-right #{@second_subject_answers.count} Voters
+
+
 
     .row
       = render partial: 'answers/answers_column', locals: {column: "first", topic: @topic, answers: @first_subject_answers}
