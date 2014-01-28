@@ -6,4 +6,7 @@ Comparify::Application.routes.draw do
   resources :topics, only: [:index, :new, :create, :show] do
     resources :answers, only: [:create, :new]
   end
+
+  resources :users
+  resources :relationships
 end
