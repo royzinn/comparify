@@ -1,0 +1,10 @@
+.col-xs-3
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title.center
+        = link_to "#{topic.first_subject} Vs #{topic.first_subject}", topic
+    .panel-body
+      #{topic.question}
+    .panel-footer
+      %span.fa.fa-comments= " #{first_subject_answers_count(topic)}"
+      %span.fa.fa-comments-o.pull-right= second_subject_answers_count(topic)

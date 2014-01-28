@@ -29,4 +29,12 @@ module TopicsHelper
       end
     end
   end
+
+  def first_subject_answers_count(topic)
+    topic.answers.supports_first_subject.count
+  end
+
+  def second_subject_answers_count(topic)
+    topic.answers.supports_second_subject.count
+  end
 end
