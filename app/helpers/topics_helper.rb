@@ -37,4 +37,12 @@ module TopicsHelper
   def second_subject_answers_count(topic)
     topic.answers.supports_second_subject.count
   end
+
+  def topic_owner
+    if @topic.user == current_user
+      link_to "Me", @topic.user
+    else
+      link_to @topic.user.name, @topic.user
+    end
+  end
 end

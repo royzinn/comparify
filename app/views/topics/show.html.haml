@@ -12,15 +12,8 @@
       .p
         %small
           asked by
-          = link_to @topic.user.name
-          /%a{href: "#"} John
+          = topic_owner
       = voters_for_subjects
-      / - unless @first_subject_answers.empty?
-      /   %p
-      /     %span.label.label-primary.pull-left #{@first_subject_answers.count} Voters
-      /     %span.label.label-info.pull-right #{@second_subject_answers.count} Voters
-
-
 
     .row
       = render partial: 'answers/answers_column', locals: {column: "first", topic: @topic, answers: @first_subject_answers}

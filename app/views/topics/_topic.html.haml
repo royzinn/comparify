@@ -1,4 +1,4 @@
-.col-xs-3
+.topic-box.col-xs-3
   .panel.panel-default
     .panel-heading
       %h3.panel-title.center
@@ -7,4 +7,5 @@
       #{topic.question}
     .panel-footer
       %span.fa.fa-comments= " #{first_subject_answers_count(topic)}"
-      %span.fa.fa-comments-o.pull-right= second_subject_answers_count(topic)
+      %span.fa.fa-comments.fa-flip-horizontal.pull-right
+      %span.pull-right= " #{second_subject_answers_count(topic)}"
