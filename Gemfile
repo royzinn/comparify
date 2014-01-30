@@ -16,6 +16,11 @@ gem "figaro"
 gem 'friendly_id', '~> 5.0.0'
 gem 'bootstrap_form'
 gem 'rails_autolink'
+gem 'html-pipeline'
+gem 'github-markdown'
+gem 'sanitize'
+gem 'rinku'
+gem 'gemoji'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
