@@ -27,3 +27,5 @@ $(document).on 'ready page:change', ->
 
   $('#first_subject_button').tooltip();
   $('#second_subject_button').tooltip();
+
+  $("#answer-stream").jTruncate()
