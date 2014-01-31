@@ -2,7 +2,7 @@
   %a.pull-left{href: "#"}
     %img.media-object.dp.img-circle{src: "http://www.huffmancode.com/img/hardik.jpg"}/
   .media-body
-    %p= answer.body
+    %p{id: "answer-stream"}= raw format(answer.body)
   %div
     %p
       %i.fa.fa-user
@@ -11,6 +11,4 @@
       |
       %i.fa.fa-calendar
       Sept 16th, 2012 |
-      %i.fa.fa-chevron-circle-up
-      vote up
-%hr/
+      %i.fa.fa-chevron-circle-up vote up

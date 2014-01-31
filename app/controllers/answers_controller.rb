@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  include FormatHelper
   before_action :authenticate_user!, except: [:show]
 
   def create
