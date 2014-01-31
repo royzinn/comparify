@@ -1,8 +1,8 @@
 .media
   %a.pull-left{href: "#"}
     %img.media-object.dp.img-circle{src: "http://www.huffmancode.com/img/hardik.jpg"}/
-  .media-body
-    %p{id: "answer-stream"}= raw format(answer.body)
+  .media-body.answer-stream
+    %p= raw format(answer.body)
   %div
     %p
       %i.fa.fa-user

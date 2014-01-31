@@ -28,4 +28,12 @@ $(document).on 'ready page:change', ->
   $('#first_subject_button').tooltip();
   $('#second_subject_button').tooltip();
 
-  $("#answer-stream").jTruncate()
+  $(".answer-stream").jTruncate({
+    length: 150,
+    minTrail: 0,
+    moreText: "show all",
+    lessText: "show less",
+    ellipsisText: "...",
+    moreAni: "fast",
+    lessAni: "fast"
+    });
