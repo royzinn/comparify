@@ -2,7 +2,7 @@ class Topic < ActiveRecord::Base
   extend FriendlyId
   before_save :downcase_attributes
   belongs_to :user
-  has_many :answers, dependent: :destroy, counter_cache: true
+  has_many :answers, dependent: :destroy
   friendly_id :subjects_with_question, use: :slugged
   validates :first_subject, presence: true
   validates :second_subject, presence: true

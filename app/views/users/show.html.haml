@@ -9,9 +9,9 @@
       = render 'stats'
   .col-sm-8
     = render 'follow_form' if signed_in?
-    / - if @user.microposts.any?
-    /   %h3
-    /     Microposts (#{@user.microposts.count})
-    /   %ol.microposts
-    /     = render @microposts
-    /   = will_paginate @microposts
+    - if @user.topics.any?
+      %h3
+        Questions (#{@user.topics.count})
+      %ol.topics
+        = render partial: "user_topics", collection: @topics, as: :topic
+      / = will_paginate @microposts

@@ -3,7 +3,7 @@
     %p.pull-right.visible-xs.visible-sm
       %button.btn.btn-primary.btn-xs{"data-toggle" => "offcanvas", type: "button"} Toggle nav
     .jumbotron
-      %h1= "#{@topic.first_subject.titleize} Vs #{@topic.second_subject.titleize}"
+      %h2= "#{@topic.first_subject.titleize} Vs #{@topic.second_subject.titleize}"
       %p.lead= @topic.question
       .ui-group-buttons
         = new_answer_link(:first)

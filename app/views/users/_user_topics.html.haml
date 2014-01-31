@@ -1,0 +1,7 @@
+%li
+  %span.content= topic_header(topic)
+  %span.timestamp
+    Posted #{time_ago_in_words(topic.created_at)} ago.
+  - if current_user == topic.user
+    = link_to "delete", topic, method: :delete, |
+      data: { confirm: "You sure?" }
