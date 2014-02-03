@@ -31,8 +31,8 @@ $(document).on 'ready page:change', ->
   $(".answer-stream").jTruncate({
     length: 150,
     minTrail: 0,
-    moreText: "show all",
-    lessText: "show less",
+    moreText: "(more)",
+    lessText: "(less)",
     ellipsisText: "...",
     moreAni: "fast",
     lessAni: "fast"
