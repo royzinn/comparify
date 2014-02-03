@@ -9,9 +9,9 @@
       = render 'stats'
   .col-sm-8
     = render 'follow_form' if signed_in?
-    - if @user.topics.any?
+    - if @activities.any?
       %h3
-        Questions (#{@user.topics.count})
-      %ol.topics
-        = render partial: "user_topics", collection: @topics, as: :topic
-      / = will_paginate @microposts
+        = activities_title(@user)
+      - for activity in @activities
+        = render_activity(activity, :layout => "layouts/activity_wrapper")
+
