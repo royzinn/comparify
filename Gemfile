@@ -21,6 +21,8 @@ gem 'github-markdown'
 gem 'sanitize'
 gem 'rinku'
 gem 'gemoji'
+gem 'public_activity'
+gem 'thin'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
