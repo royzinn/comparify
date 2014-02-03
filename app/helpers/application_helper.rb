@@ -4,4 +4,8 @@ module ApplicationHelper
     { success: "alert-success", error: "alert-error", alert: "alert-warning", notice: "alert-info" }[flash_type] || flash_type.to_s
   end
 
+  def topic_header(topic)
+    "#{topic.first_subject.capitalize} Versus #{topic.second_subject.capitalize}"
+  end
+
 end
