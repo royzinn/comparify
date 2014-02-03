@@ -10,7 +10,6 @@ class TopicsController < ApplicationController
     @topic = Topic.new
   end
 
-
   def show
     @first_subject_answers = @topic.answers.supports_first_subject
     @second_subject_answers = @topic.answers.supports_second_subject
@@ -20,6 +19,7 @@ class TopicsController < ApplicationController
   def create
     @topic = current_user.topics.build(topic_params)
     if @topic.save
+      @topic.create_activity :create, owner: current_user
       redirect_to @topic, notice: "Done, now let's seat and wait for answers..."
     else
       render action: 'new'
