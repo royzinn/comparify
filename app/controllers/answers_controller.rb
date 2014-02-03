@@ -5,10 +5,15 @@ class AnswersController < ApplicationController
   def create
     @topic = Topic.friendly.find(params[:topic_id])
     @answer = current_user.answers.create(answer_params.merge(topic_id: @topic.id))
+    @answer.create_activity :create, owner: current_user
     respond_to do |format|
       format.html { redirect_to @topic }
       format.js
     end
+  end
+
+  def destroy
+
   end
 
   private
