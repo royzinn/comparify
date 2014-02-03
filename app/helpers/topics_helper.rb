@@ -46,7 +46,4 @@ module TopicsHelper
     end
   end
 
-  def topic_header(topic)
-    "#{topic.first_subject} Versus #{topic.second_subject}"
-  end
 end

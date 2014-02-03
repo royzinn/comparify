@@ -1,15 +1,19 @@
 class Topic < ActiveRecord::Base
+  include PublicActivity::Common
   extend FriendlyId
+
   before_save :downcase_attributes
   belongs_to :user
   has_many :answers, dependent: :destroy
-  friendly_id :subjects_with_question, use: :slugged
+
   validates :first_subject, presence: true
   validates :second_subject, presence: true
   validates :question, presence: true,
             uniqueness: {scope: [:first_subject, :second_subject],
             case_sensitive: false, message: "Someone already asked this exact question, go figure"}
   validate :has_different_subjects
+
+  friendly_id :subjects_with_question, use: :slugged
 
 
   private
