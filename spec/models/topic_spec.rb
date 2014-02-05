@@ -18,7 +18,7 @@ describe Topic do
   describe "custom validations" do
     it "fails validation with similar subjects" do
       topic = Topic.new(first_subject: "Rails", second_subject: "rails", question: "some question")
-      expect(topic).to have(1).error_on(:second_subject)
+      expect(topic).to have(1).error_on(:base)
     end
 
     it "passes validation with different subjects" do

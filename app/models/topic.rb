@@ -29,7 +29,7 @@ class Topic < ActiveRecord::Base
 
   def has_different_subjects
     if self.first_subject && self.second_subject && self.first_subject.downcase == self.second_subject.downcase
-      errors.add(:second_subject, "can't be identical to the first suject")
+      errors[:base] << "subjects for comparisson can't be the same"
     end
   end
 end
