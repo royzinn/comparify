@@ -150,3 +150,8 @@
   document.createElement("abbr");
   document.createElement("time");
 }(jQuery));
+
+$(document).on('ready page:change', function() {
+  return $("abbr.timeago").timeago();
+});
+
