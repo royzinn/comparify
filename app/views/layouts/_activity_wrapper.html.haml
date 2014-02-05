@@ -3,7 +3,9 @@
     .mega-icon{:style => "background-image: url(#{image_path "icons/#{a.key.split(".").last}.svg"})"}
     = timeago a.created_at
     .title
-      - if a.owner
+      - if a.recipient && a.recipient == @user
+        = link_to a.recipient.name, a.recipient
+      - elsif a.owner
         = link_to a.owner.name, a.owner
       - else
         someone

@@ -24,15 +24,19 @@ module ActivityHelper
     end
   end
 
-  # Check if object still exists in the database and display a link to it,
-  # otherwise display a proper message about it.
-  # This is used in activities that can refer to
-  # objects which no longer exist, like removed posts.
   def link_to_trackable(object, object_type)
     if object
       case object_type
-        when "Topic" then link_title = "question - "
-        when "Answer" then link_title = topic_header(object)
+      when "Topic" then link_title = "question - "
+      when "Answer" then link_title = topic_header(object)
+      when "Relationship"
+        if object.follower == @user
+          link_title = object.followed.name
+          object = object.followed
+        elsif object.followed == @user
+          link_title = object.follower.name
+          object = object.follower
+        end
       end
       link_to link_title, object
     else
@@ -45,6 +49,14 @@ module ActivityHelper
       "My Activities"
     else
       "#{@user.name.capitalize}'s Activities"
+    end
+  end
+
+  def following_or_followed(follower, followed)
+    if follower == @user
+      "is now following"
+    elsif followed == @user
+      "is now followed by"
     end
   end
 end
