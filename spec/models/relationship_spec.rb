@@ -12,6 +12,12 @@ describe Relationship do
     it {should belong_to(:followed)}
     its(:follower) {should eq follower}
     its(:followed) {should eq followed}
+
+    it "fails validation when trying to follow self" do
+      roy = follower
+      relationship = Relationship.new(follower: roy, followed: roy)
+      expect(relationship).to have(1).error_on(:base)
+    end
   end
 
   describe "when followed id is not present" do
@@ -24,8 +30,4 @@ describe Relationship do
     it { should_not be_valid }
   end
 
-  describe "when trying to follow self" do
-    before { relationship.followed_id = follower.id }
-    it { should_not be_valid }
-  end
 end
