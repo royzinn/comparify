@@ -20,7 +20,7 @@ class TopicsController < ApplicationController
     @topic = current_user.topics.build(topic_params)
     if @topic.save
       @topic.create_activity :create, owner: current_user
-      redirect_to @topic, notice: "Done, now let's seat and wait for answers..."
+      redirect_to @topic, notice: "Done, now let's sit and wait for answers..."
     else
       render action: 'new'
     end

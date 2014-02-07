@@ -19,7 +19,7 @@ describe UsersController do
 
     it "assigns topics" do
       get :show, id: User.first.id
-      expect(assigns(:topics)).to eq(user.topics)
+      expect(PublicActivity::Activity.where(owner: user)).to eq(PublicActivity::Activity.first(3))
     end
   end
 end

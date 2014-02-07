@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20140202072335) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
     t.string   "trackable_type"
@@ -26,9 +28,9 @@ ActiveRecord::Schema.define(version: 20140202072335) do
     t.datetime "updated_at"
   end
 
-  add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type"
-  add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type"
-  add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
+  add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", using: :btree
+  add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
+  add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
   create_table "answers", force: true do |t|
     t.text     "body"
@@ -39,8 +41,8 @@ ActiveRecord::Schema.define(version: 20140202072335) do
     t.datetime "updated_at"
   end
 
-  add_index "answers", ["topic_id"], name: "index_answers_on_topic_id"
-  add_index "answers", ["user_id"], name: "index_answers_on_user_id"
+  add_index "answers", ["topic_id"], name: "index_answers_on_topic_id", using: :btree
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -50,10 +52,10 @@ ActiveRecord::Schema.define(version: 20140202072335) do
     t.datetime "created_at"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "relationships", force: true do |t|
     t.datetime "created_at"
@@ -62,9 +64,9 @@ ActiveRecord::Schema.define(version: 20140202072335) do
     t.integer  "followed_id"
   end
 
-  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
-  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
-  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
   create_table "topics", force: true do |t|
     t.string   "first_subject"
@@ -77,12 +79,12 @@ ActiveRecord::Schema.define(version: 20140202072335) do
     t.integer  "answers_count"
   end
 
-  add_index "topics", ["first_subject", "second_subject", "question"], name: "index_on_first_second_question_unique", unique: true
-  add_index "topics", ["first_subject", "second_subject"], name: "index_topics_on_first_subject_and_second_subject"
-  add_index "topics", ["first_subject"], name: "index_topics_on_first_subject"
-  add_index "topics", ["second_subject"], name: "index_topics_on_second_subject"
-  add_index "topics", ["slug"], name: "index_topics_on_slug", unique: true
-  add_index "topics", ["user_id"], name: "index_topics_on_user_id"
+  add_index "topics", ["first_subject", "second_subject", "question"], name: "index_on_first_second_question_unique", unique: true, using: :btree
+  add_index "topics", ["first_subject", "second_subject"], name: "index_topics_on_first_subject_and_second_subject", using: :btree
+  add_index "topics", ["first_subject"], name: "index_topics_on_first_subject", using: :btree
+  add_index "topics", ["second_subject"], name: "index_topics_on_second_subject", using: :btree
+  add_index "topics", ["slug"], name: "index_topics_on_slug", unique: true, using: :btree
+  add_index "topics", ["user_id"], name: "index_topics_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -101,8 +103,8 @@ ActiveRecord::Schema.define(version: 20140202072335) do
     t.string   "slug"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["slug"], name: "index_users_on_slug", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
 
 end

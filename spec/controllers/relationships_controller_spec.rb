@@ -19,6 +19,12 @@ describe RelationshipsController do
       xhr :post, :create, relationship: { followed_id: other_user.id }
       expect(response).to be_success
     end
+
+    it "creates new activity assigned to user and recipient" do
+      xhr :post, :create, relationship: { followed_id: other_user.id }
+      expect(PublicActivity::Activity.last.owner).to eq(user)
+      expect(PublicActivity::Activity.last.recipient).to eql(other_user)
+    end
   end
 
   describe "destroying a relationship with Ajax" do

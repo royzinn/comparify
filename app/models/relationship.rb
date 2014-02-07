@@ -11,7 +11,7 @@ class Relationship < ActiveRecord::Base
   private
 
   def cannot_follow_self
-    if :follower_id == :followed_id
+    if self.follower_id == self.followed_id
       errors[:base] << "well, you want to follow yourself? sure?"
     end
   end

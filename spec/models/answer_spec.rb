@@ -20,7 +20,7 @@ describe Answer do
       3.times do |x|
         Answer.create(body: "hello #{x}", referred_subject: :first)
       end
-      expect(Answer.support_first_subject).to eq(Answer.last(3))
+      expect(Answer.supports_first_subject).to eq(Answer.last(3))
     end
 
     it "returns all answer related to second subject" do

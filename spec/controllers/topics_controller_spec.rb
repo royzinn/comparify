@@ -31,10 +31,6 @@ describe TopicsController do
         it "creates new topic" do
           post :create, topic: Fabricate.attributes_for(:topic)
           expect(subject.current_user.topics.count).to eq(1)
-        end
-
-        it "redirect to the show page" do
-          post :create, topic: Fabricate.attributes_for(:topic)
           expect(response).to redirect_to topic_path(Topic.last.friendly_id)
         end
       end
@@ -55,14 +51,18 @@ describe TopicsController do
 
       it "assigns @first_subject_answers and @second_subject_answers" do
         topic = Fabricate(:topic)
-        answer_1 = Answer.create!(body: "some answer", referred_subject: "first", topic: topic)
-        answer_2 = Answer.create!(body: "some answer", referred_subject: "first", topic: topic)
-        answer_3 = Answer.create!(body: "some answer", referred_subject: "second", topic: topic)
-        answer_4 = Answer.create!(body: "some answer", referred_subject: "second", topic: topic)
+        roy = Fabricate(:user)
+        roy_ans = Answer.create!(body: "some answer", referred_subject: "first", topic: topic, user: roy)
+        joy = Fabricate(:user)
+        joy_ans = Answer.create!(body: "some answer", referred_subject: "first", topic: topic, user: joy)
+        toy = Fabricate(:user)
+        toy_ans = Answer.create!(body: "some answer", referred_subject: "second", topic: topic, user: toy)
+        noy = Fabricate(:user)
+        noy_ans = Answer.create!(body: "some answer", referred_subject: "second", topic: topic, user: noy)
 
         get :show, id: topic.id
-        assigns(:first_subject_answers).should eq([answer_1, answer_2])
-        assigns(:second_subject_answers).should eq([answer_3, answer_4])
+        assigns(:first_subject_answers).should eq([roy_ans, joy_ans])
+        assigns(:second_subject_answers).should eq([toy_ans, noy_ans])
       end
     end
   end
