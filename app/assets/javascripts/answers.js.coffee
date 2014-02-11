@@ -28,12 +28,13 @@ $(document).on 'ready page:change', ->
   $('#first_subject_button').tooltip();
   $('#second_subject_button').tooltip();
 
-  $(".answer-stream").jTruncate({
-    length: 150,
-    minTrail: 0,
-    moreText: "(more)",
-    lessText: "(less)",
-    ellipsisText: "...",
-    moreAni: "fast",
-    lessAni: "fast"
-    });
+  if $(".truncate_ellipsis").length == 0
+    $(".topic-comment").jTruncate({
+      length: 180,
+      minTrail: 0,
+      moreText: "(more)",
+      lessText: "(less)",
+      ellipsisText: "...",
+      moreAni: "fast",
+      lessAni: "fast"
+      });
