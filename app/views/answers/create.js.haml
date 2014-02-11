@@ -4,6 +4,7 @@
     $('#answer-modal').modal('hide')
     var column_selector = "##{@answer.referred_subject.to_s}" + "_subject_answers"
     $(column_selector).append('#{j render @answer}');
+    $("abbr.timeago").timeago()
 
 -else
   :plain

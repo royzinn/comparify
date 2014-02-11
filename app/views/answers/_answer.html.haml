@@ -1,14 +1,24 @@
-.media
-  %a.pull-left{href: "#"}
-    %img.media-object.dp.img-circle{src: "http://www.huffmancode.com/img/hardik.jpg"}/
-  .media-body.answer-stream
+/ .media
+/   %a.pull-left{href: "#"}
+/     %img.media-object.dp.img-circle{src: "http://www.huffmancode.com/img/hardik.jpg"}/
+/   .media-body.answer-stream
+/     %p= raw format(answer.body)
+/   %div
+
+
+.timeline-badge
+.row.clearfix.timeline-panel
+  .col-md-3.column
+    %img.img-circle{src: "https://gravatar.com/avatar/a9377d333b8aec095a3646bf1799e178?d=https%3A%2F%2Fidenticons.github.com%2F462cf426418db897544f727d569f6fbe.png&r=x"}
+    = link_to answer.user.name, answer.user
+  .col-md-9.topic-comment
     %p= raw format(answer.body)
-  %div
+  .col-md-12
     %p
-      %i.fa.fa-user
-      by
-      = link_to answer.user.name, answer.user
+      %i.fa.fa-thumbs-up
+      21
       |
-      %i.fa.fa-calendar
-      Sept 16th, 2012 |
-      %i.fa.fa-chevron-circle-up vote up
+      %i.fa.fa-comments
+      12
+      = timeago answer.created_at, {:class => "pull-right timeago"}
+%div{:style => "clear:both"}

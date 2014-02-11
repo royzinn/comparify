@@ -1,2 +1,8 @@
-.comment.col-xs-12.col-sm-6{:id => "#{column}_subject_answers"}
-  = render partial: "answers/answer", collection: answers
+- if column == "first"
+  .col-xs-12.col-sm-6.first_subject_answers{:id => "#{column}_subject_answers"}
+    = render partial: "answers/answer", collection: answers
+- else
+  .col-xs-12.col-sm-6.timeline-inverted.second_subject_answers{:id => "#{column}_subject_answers"}
+    = render partial: "answers/answer", collection: answers
+
+
