@@ -1,132 +1,132 @@
 .jumbotron.text-center {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #CCCCCC;
-    border-radius: 3px;
-    padding: 20px;
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #CCCCCC;
+  border-radius: 3px;
+  padding: 20px;
 }
 
 .glyphicon.glyphicon-comment.comm {
-    color: #888685;
-    float: right;
-    font-size: 30px;
+  color: #888685;
+  float: right;
+  font-size: 30px;
 }
 
 .timeline-panel:before {
-    border-color: rgba(0, 0, 0, 0) #CCCCCC;
-    border-style: solid;
-    border-width: 15px 0 15px 15px;
-    content: " ";
-    display: inline-block;
-    position: absolute;
-    right: -15px;
-    top: 26px;
+  border-color: rgba(0, 0, 0, 0) #CCCCCC;
+  border-style: solid;
+  border-width: 15px 0 15px 15px;
+  content: " ";
+  display: inline-block;
+  position: absolute;
+  right: -15px;
+  top: 26px;
 }
 .timeline-panel:after {
-    border-color: rgba(0, 0, 0, 0) #FFFFFF;
-    border-style: solid;
-    border-width: 14px 0 14px 14px;
-    content: " ";
-    display: inline-block;
-    position: absolute;
-    right: -14px;
-    top: 27px;
+  border-color: rgba(0, 0, 0, 0) #FFFFFF;
+  border-style: solid;
+  border-width: 14px 0 14px 14px;
+  content: " ";
+  display: inline-block;
+  position: absolute;
+  right: -14px;
+  top: 27px;
 }
 .timeline-panel {
-    border: 1px solid #D4D4D4;
-    border-radius: 2px;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.176);
-    float: left;
-    padding: 5px;
-    position: relative;
+  border: 1px solid #D4D4D4;
+  border-radius: 2px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.176);
+  float: left;
+  padding: 5px;
+  position: relative;
 }
 .timeline {
-    list-style: none outside none;
+  list-style: none outside none;
 }
 
 .timeline-inverted > .timeline-panel:before {
-    border-left-width: 0;
-    border-right-width: 15px;
-    left: -15px;
-    right: auto;
+  border-left-width: 0;
+  border-right-width: 15px;
+  left: -15px;
+  right: auto;
 }
 .timeline-inverted > .timeline-panel:after {
-    border-left-width: 0;
-    border-right-width: 14px;
-    left: -14px;
-    right: auto;
+  border-left-width: 0;
+  border-right-width: 14px;
+  left: -14px;
+  right: auto;
 }
 .row.clearfix.timeline-panel {
-    background: none repeat scroll 0 0 #FFFFFF;
+  background: none repeat scroll 0 0 #FFFFFF;
   margin: 5px 0;
 }
 .col-md-3.column .img-circle {
-    border: 1px solid #EBEBEB;
-    margin-bottom: 0;
-    width: 59px;
-    margin-top: 12px;
-    margin-bottom: 5px;
+  border: 1px solid #EBEBEB;
+  margin-bottom: 0;
+  width: 59px;
+  margin-top: 12px;
+  margin-bottom: 5px;
 }
 .timeline-panel .col-md-3.column {
-    font-size: 11px;
-    font-style: italic;
-    line-height: 11px;
-    text-align: center;
-    margin-bottom: 10px;
+  font-size: 11px;
+  font-style: italic;
+  line-height: 11px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 .first_subject_answers:before {
-    background-color: #FFFFFF;
-    bottom: -18px;
-    content: " ";
-    left: 100%;
-    margin-left: -1.5px;
-    position: absolute;
-    top: 0;
-    width: 2px;
+  background-color: #FFFFFF;
+  bottom: -18px;
+  content: " ";
+  left: 100%;
+  margin-left: -1.5px;
+  position: absolute;
+  top: 0;
+  width: 2px;
 }
 
 .second_subject_answers:before {
-    background-color: #FFFFFF;
-    bottom: -18px;
-    content: " ";
-    left: 0%;
-    margin-left: -1.5px;
-    position: absolute;
-    top: 0;
-    width: 2px;
+  background-color: #FFFFFF;
+  bottom: -18px;
+  content: " ";
+  left: 0%;
+  margin-left: -1.5px;
+  position: absolute;
+  top: 0;
+  width: 2px;
 }
 .col-sm-6.timeline-inverted.second_subject_answers {
-    margin-top: 25px;
+  margin-top: 25px;
 }
 .first_subject_answers .timeline-badge {
-    background-color: #ECF0F1;
-    border: 2px solid #FAFAFA;
-    border-radius: 50%;
-    color: #FFFFFF;
-    font-size: 1.4em;
-    height: 12px;
-    left: 101.4%;
-    line-height: 50px;
-    margin-left: -13px;
-    position: absolute;
-    text-align: center;
-    width: 12px;
-    z-index: 100;
-    margin-top: 42px;
+  background-color: #ECF0F1;
+  border: 2px solid #FAFAFA;
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-size: 1.4em;
+  height: 12px;
+  left: 101.4%;
+  line-height: 50px;
+  margin-left: -13px;
+  position: absolute;
+  text-align: center;
+  width: 12px;
+  z-index: 100;
+  margin-top: 42px;
 }
 
 .timeline-inverted .timeline-badge {
-    background-color: #ECF0F1;
-    border: 2px solid #FAFAFA;
-    border-radius: 50%;
-    color: #FFFFFF;
-    font-size: 1.4em;
-    height: 12px;
-    right: 99%;
-    line-height: 50px;
-    margin-left: -13px;
-    position: absolute;
-    text-align: center;
+  background-color: #ECF0F1;
+  border: 2px solid #FAFAFA;
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-size: 1.4em;
+  height: 12px;
+  right: 99%;
+  line-height: 50px;
+  margin-left: -13px;
+  position: absolute;
+  text-align: center;
   margin-top:42px;
-    width: 12px;
-    z-index: 100;
+  width: 12px;
+  z-index: 100;
 }
