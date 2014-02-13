@@ -22,6 +22,7 @@ gem 'sanitize'
 gem 'rinku'
 gem 'gemoji'
 gem 'public_activity'
+gem 'acts-as-taggable-on'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
