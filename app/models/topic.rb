@@ -4,6 +4,7 @@ class Topic < ActiveRecord::Base
 
   before_save :downcase_attributes
   belongs_to :user
+  belongs_to :category, counter_cache: true
   has_many :answers, dependent: :destroy
 
   validates :first_subject, presence: true

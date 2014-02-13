@@ -33,6 +33,6 @@ class TopicsController < ApplicationController
   end
 
   def topic_params
-    params.require(:topic).permit(:first_subject, :second_subject, :question)
+    params.require(:topic).permit(:first_subject, :second_subject, :question, :category_id)
   end
 end

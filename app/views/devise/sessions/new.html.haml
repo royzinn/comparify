@@ -1,20 +1,21 @@
-.panel.panel-default
-  .panel-heading
-    .panel-title
-      %h1 Sign in
-  .panel-body
-    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-      .form-group
-        = f.label :email
-        = f.email_field :email, class: "form-control", :autofocus => true
-      .form-group
-        = f.label :password
-        = f.password_field :password, class: "form-control"
-      .form-group
-        .checkbox
-          = f.check_box :remember_me
-          = f.label :remember_me
-      .form-group
-        = f.submit "Sign in", class: "btn btn-primary"
-  .panel-footer
-    = render "devise/shared/links"
+.row
+  .col-sm-12.col-md-6.col-md-offset-3
+    .panel.panel-default
+      .panel-heading
+        %legend Sign In
+      .panel-body
+        = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+          .form-group
+            = f.label :email
+            = f.email_field :email, class: "form-control", :autofocus => true
+          .form-group
+            = f.label :password
+            = f.password_field :password, class: "form-control"
+          .form-group
+            .checkbox
+              = f.check_box :remember_me
+              = f.label :remember_me
+          .form-group
+            = f.submit "Sign in", class: "btn btn-primary"
+      .panel-footer
+        = render "devise/shared/links"

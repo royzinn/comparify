@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140202072335) do
+ActiveRecord::Schema.define(version: 20140212072925) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -41,6 +41,11 @@ ActiveRecord::Schema.define(version: 20140202072335) do
 
   add_index "answers", ["topic_id"], name: "index_answers_on_topic_id"
   add_index "answers", ["user_id"], name: "index_answers_on_user_id"
+
+  create_table "categories", force: true do |t|
+    t.string  "name"
+    t.integer "topics_count"
+  end
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -75,8 +80,10 @@ ActiveRecord::Schema.define(version: 20140202072335) do
     t.integer  "user_id"
     t.string   "slug"
     t.integer  "answers_count"
+    t.integer  "category_id"
   end
 
+  add_index "topics", ["category_id"], name: "index_topics_on_category_id"
   add_index "topics", ["first_subject", "second_subject", "question"], name: "index_on_first_second_question_unique", unique: true
   add_index "topics", ["first_subject", "second_subject"], name: "index_topics_on_first_subject_and_second_subject"
   add_index "topics", ["first_subject"], name: "index_topics_on_first_subject"

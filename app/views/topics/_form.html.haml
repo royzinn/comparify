@@ -1,21 +1,13 @@
-= form_for(@topic) do |f|
-  - if @topic.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@topic.errors.count, "error")
-        prohibited this topic from being saved:
-      %ul
-        - @topic.errors.full_messages.each do |msg|
-          %li= msg
+= bootstrap_form_for(@topic) do |f|
+  .row
+    .col-xs-5
+      = f.text_field :first_subject, hide_label: :true
+    .col-xs-2.center
+      %span.help-block{:style => "text-align:center; font-size:x-large; margin-top:0px"} Vs
+    .col-xs-5
+      = f.text_field :second_subject, hide_label: :true
   .form-group
-    = f.label :first_subject
-    = f.text_field :first_subject, class: "form-control"
-
-    = f.label :second_subject
-    = f.text_field :second_subject, class: "form-control"
-
-    = f.label :question, "Refinement question"
-    = f.text_area :question, class: "form-control"
-
+    = f.text_area :question, rows: 4
   .form-group
-    = f.submit class: "btn btn-primary"
+    = f.collection_select :category_id, Category.all.order("name ASC"), :id, :name
+  = f.submit "Go Ahead Ask The Crowd", class: "btn btn-info btn-block"
