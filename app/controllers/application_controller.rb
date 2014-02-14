@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def timeago(time, options = {})
+    options[:class] ||= "timeago"
+    content_tag(:abbr, time.to_s, options.merge(:title => time.getutc.iso8601)) if time
+  end
+
   protected
 
   def configure_permitted_parameters

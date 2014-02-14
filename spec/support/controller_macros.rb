@@ -1,11 +1,16 @@
 module ControllerMacros
-  def login_user(user = nil)
+  def login_user
     before(:each) do
       @request.env["devise.mapping"] = Devise.mappings[:user]
-      if user.nil?
-        user = Fabricate(:user)
-      end
+      user = Fabricate(:user)
       sign_in user
     end
   end
+
+  # def login_admin
+  #   before(:each) do
+  #     @request.env["devise.mapping"] = Devise.mappings[:admin]
+  #     sign_in Fabricate(:admin) # Using factory girl as an example
+  #   end
+  # end
 end

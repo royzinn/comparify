@@ -18,12 +18,17 @@ class TopicsController < ApplicationController
 
   def create
     @topic = current_user.topics.build(topic_params)
+    @topic.tag_list.add(params[:tag_list], parse: true) if params[:tag_list]
     if @topic.save
       @topic.create_activity :create, owner: current_user
-      redirect_to @topic, notice: "Done, now let's seat and wait for answers..."
+      redirect_to @topic, notice: "Done, now let's sit and wait for answers..."
     else
       render action: 'new'
     end
+  end
+
+  def autocomplete_tags
+    redirect_to home_path
   end
 
   private

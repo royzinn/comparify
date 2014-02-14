@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Topic do
+  subject(:topic) { Topic.create(first_subject: "RaiLs", second_subject: "meTeor", question: "Which one is Better") }
+
   it { should belong_to(:user) }
   it { should belong_to(:category) }
   it { should validate_presence_of(:first_subject) }
@@ -24,7 +26,7 @@ describe Topic do
 
     it "passes validation with different subjects" do
       topic = Topic.new(first_subject: "Rails", second_subject: "Relish", question: "some question")
-      expect(Topic.count).to eq(1)
+      expect(topic).to be_valid
     end
   end
 end
