@@ -3,11 +3,14 @@
     .col-xs-5
       = f.text_field :first_subject, hide_label: :true
     .col-xs-2.center
-      %span.help-block{:style => "text-align:center; font-size:x-large; margin-top:0px"} Vs
+      %span.help-block.topic-form Vs
     .col-xs-5
       = f.text_field :second_subject, hide_label: :true
   .form-group
     = f.text_area :question, rows: 4
   .form-group
     = f.collection_select :category_id, Category.all.order("name ASC"), :id, :name
+  .form-group{"data-no-turbolink" => ""}
+    = label_tag "Add Some Tags (User Enter Key)"
+    = text_field_tag :tag_list, nil, :data => {:role => "tagsinput"}
   = f.submit "Go Ahead Ask The Crowd", class: "btn btn-info btn-block"

@@ -12,10 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.effect-highlight
+//= require jquery.ui.all
 //= require bootstrap
+//= require bootstrap-tagsinput
 //= require turbolinks
 //= require jquery.timeago
+//= require jtruncate
 //= require_tree .
 
 

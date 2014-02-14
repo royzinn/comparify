@@ -15,11 +15,16 @@ class Topic < ActiveRecord::Base
   validate :has_different_subjects
 
   friendly_id :subjects_with_question, use: :slugged
+  acts_as_taggable
+
+  def user_already_answered?(user)
+    answers.where(user_id: user.id).empty?
+  end
 
 
   private
   def subjects_with_question
-    "#{first_subject}-VS-#{second_subject}-#{question}"
+    "#{first_subject}-versus-#{second_subject}-#{question}"
   end
 
   def downcase_attributes

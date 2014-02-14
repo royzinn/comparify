@@ -1,11 +1,4 @@
 module ActivityHelper
-  def timeago(time, options = {})
-    options[:class] ||= "timeago"
-    content_tag(:abbr, time.to_s, options.merge(:title => time.getutc.iso8601)) if time
-  end
-
-  # Shortcut for outputing proper ownership of objects,
-  # depending on who is looking
   def whose?(user, object)
     case object
       when Topic, Answer
