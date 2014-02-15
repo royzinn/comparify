@@ -1,10 +1,17 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
+    make_categories
     make_users
     make_topics
     make_answers
     make_relationships
+  end
+end
+
+def make_categories
+  ["Education", "Technology", "Fashion", "Sports", "Politics", "Gossip", "Business", "Entrepreneurship", "Shopping"].each do |c|
+    Category.create!(name: c)
   end
 end
 
@@ -31,8 +38,10 @@ def make_topics
       first_subject = Faker::Company.name
       second_subject = Faker::Company.name
       question = Faker::Lorem.sentence(10)
+      categor_id = Category.all.sample.id
       user.topics.create!(first_subject: first_subject,
                           second_subject: second_subject,
+                          category_id: category_id,
                           question: question)
     end
   end
