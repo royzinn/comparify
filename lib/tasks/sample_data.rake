@@ -32,17 +32,19 @@ def make_users
 end
 
 def make_topics
-  users = User.all(limit: 6)
+  users = User.all
   users.each do |user|
-    5.times do
+    2.times do
       first_subject = Faker::Company.name
       second_subject = Faker::Company.name
       question = Faker::Lorem.sentence(10)
       categor_id = Category.all.sample.id
+      topic_tags = (1..5).inject([]) {|arr, x| arr << Faker::Internet.domain_word; arr}
       user.topics.create!(first_subject: first_subject,
                           second_subject: second_subject,
                           category_id: category_id,
-                          question: question)
+                          question: question,
+                          tag_list: topic_tags)
     end
   end
 end
