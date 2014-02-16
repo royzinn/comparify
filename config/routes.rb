@@ -8,6 +8,11 @@ Comparify::Application.routes.draw do
     resources :answers, only: [:create, :new]
   end
 
+  resources :answers do
+    resources :comments, shallow: true
+  end
+  resources :comments, only: [:show, :edit, :update, :destroy]
+
   resources :users
   resources :relationships
 end

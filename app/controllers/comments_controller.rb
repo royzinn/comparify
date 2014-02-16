@@ -1,0 +1,3 @@
+class Comments < ApplicationController
+
+end
