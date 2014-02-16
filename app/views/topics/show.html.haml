@@ -19,7 +19,7 @@
       = render partial: 'answers/answers_column', locals: {column: "first", topic: @topic, answers: @first_subject_answers}
       .linetimeline
       = render partial: 'answers/answers_column', locals: {column: "second", topic: @topic, answers: @second_subject_answers}
-  = render 'sidebar'
+  = render 'sidebar', locals: {tags: @tags}
 
 #answer-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "answer-modal-label", role: "dialog", tabindex: "-1"}
   = render 'answers/form'

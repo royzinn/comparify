@@ -14,6 +14,7 @@ class TopicsController < ApplicationController
     @first_subject_answers = @topic.answers.supports_first_subject
     @second_subject_answers = @topic.answers.supports_second_subject
     @answer = Answer.new
+    @tags = @topic.tag_list
   end
 
   def create

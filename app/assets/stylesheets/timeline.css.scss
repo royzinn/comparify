@@ -1,3 +1,5 @@
+$answer-actions-color: #428bca;
+
 .jumbotron.text-center {
   background: none repeat scroll 0 0 #FFFFFF;
   border: 1px solid #CCCCCC;
@@ -129,4 +131,27 @@
   margin-top:42px;
   width: 12px;
   z-index: 100;
+}
+
+span.actions_divider {
+  float: left;
+  padding: 0 7px;
+  display: inline-block;
+  margin: -3px 0 0;
+  vertical-align: text-top;
+  font-weight: bold;
+  color: #666;
+}
+
+span.action_text {
+  color: $answer-actions-color;
+  float: left;
+}
+
+.fa-thumbs-o-up, .fa-thumbs-o-down, .fa-comments-o {
+  color: $answer-actions-color;
+  float: left;
+  padding: 0 3px 0 3px;
+  display: inline-block;
+  margin: 3px 0 0;
 }

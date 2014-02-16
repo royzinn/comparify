@@ -7,10 +7,14 @@
     %p= raw format(answer.body)
   .col-md-12
     %p
-      %i.fa.fa-thumbs-up
-      21
-      |
-      %i.fa.fa-comments
-      12
+      = link_to '#' do
+        %i.fa.fa-thumbs-o-up
+      %span{:class => "action_text"} vote
+      = link_to '#' do
+        %i.fa.fa-thumbs-o-down
+      %span.actions_divider .
+      %i.fa.fa-comments-o{:class => "pull-left"}
+      %span= link_to "add comment", '#', {:class => "pull-left"}
+      %span.actions_divider .
       = timeago answer.created_at, {:class => "pull-right timeago"}
 %div{:style => "clear:both"}

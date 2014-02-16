@@ -1,12 +1,6 @@
 #sidebar.col-xs-6.col-sm-6.col-md-3.sidebar-offcanvas{role: "navigation"}
-  .panel.panel-default.sidebar-nav
-    .panel-heading
-      Resources
-    .panel-body
-      %ul.list-unstyled
-        %li
-          %a{href: "#"} Link
-        %li
-          %a{href: "#"} Link
-        %li
-          %a{href: "#"} Link
+  - if @tags.any?
+    = render 'sidebar_tags', obj: @tags
+
+  / - if @links.any?
+  /   = render 'sidebar_links', obj: @links

@@ -1,0 +1,7 @@
+.panel.panel-default.sidebar-nav
+  .panel-heading
+    Tags
+  .panel-body
+    - @tags.each do |tag|
+      = link_to '#' do
+        %span.label.label-default= tag

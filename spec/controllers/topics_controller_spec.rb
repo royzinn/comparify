@@ -64,6 +64,14 @@ describe TopicsController do
         assigns(:first_subject_answers).should eq([roy_ans, joy_ans])
         assigns(:second_subject_answers).should eq([toy_ans, noy_ans])
       end
+
+      it "assigns :tags" do
+        topic = Fabricate(:topic)
+        topic.tag_list.add("ruby, rails", parse: true)
+        topic.save!
+        get :show, id: topic.id
+        assigns(:tags).should eq(["ruby", "rails"])
+      end
     end
   end
 end
