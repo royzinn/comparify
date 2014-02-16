@@ -3,7 +3,11 @@ class TopicsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @topics = Topic.all
+    if params[:tag]
+      @topics = Topic.tagged_with(params[:tag])
+    else
+      @topics = Topic.all
+    end
   end
 
   def new

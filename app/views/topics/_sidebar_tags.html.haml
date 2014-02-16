@@ -3,5 +3,5 @@
     Tags
   .panel-body
     - @tags.each do |tag|
-      = link_to '#' do
+      = link_to topics_path(tag: tag) do
         %span.label.label-default= tag

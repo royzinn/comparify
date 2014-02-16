@@ -8,6 +8,24 @@ describe TopicsController do
         get :index
         expect(assigns(:topics)).to eq(topics)
       end
+
+      context "with tags" do
+        before do
+          @topic_1 = Fabricate(:topic, tag_list: ["rails", "ruby"])
+          @topic_2 = Fabricate(:topic, tag_list: ["rails"])
+          @topic_3 = Fabricate(:topic)
+        end
+
+        it "finds multiple topics by tags" do
+          get :index, tag: "rails"
+          expect(assigns(:topics)).to include(@topic_1, @topic_2)
+        end
+
+        it "finds single by tags" do
+          get :index, tag: "ruby"
+          expect(assigns(:topics)).to eq([@topic_1])
+        end
+      end
     end
 
     describe "GET :new" do
