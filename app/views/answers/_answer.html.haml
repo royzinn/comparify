@@ -5,7 +5,7 @@
     = link_to answer.user.name, answer.user
   .col-md-9.topic-comment
     %p= raw format(answer.body)
-  .col-md-12
+  .col-md-12.actions
     %p
       = link_to '#' do
         %i.fa.fa-thumbs-o-up
@@ -14,7 +14,7 @@
         %i.fa.fa-thumbs-o-down
       %span.actions_divider .
       %i.fa.fa-comments-o{:class => "pull-left"}
-      %span= link_to "add comment", '#', {:class => "pull-left"}
+      %span= link_to "add comment", new_answer_comment_path(answer), {remote: true, id: answer.id, :class => "pull-left"}
       %span.actions_divider .
       = timeago answer.created_at, {:class => "pull-right timeago"}
 %div{:style => "clear:both"}

@@ -1,0 +1,10 @@
+.row
+  .col-sm-12
+    %hr
+    .col-sm-1.column.inline-answer-gravatar
+      = image_tag "https://gravatar.com/avatar/a9377d333b8aec095a3646bf1799e178?d=https%3A%2F%2Fidenticons.github.com%2F462cf426418db897544f727d569f6fbe.png&r=x", width: "30", height: "30"
+    .col-sm-11.column
+      = bootstrap_form_for([@answer, @comment]) do |f|
+        .form-group
+          = f.text_area :body, hide_label: true, rows: 2, class: "inline-answer-zone"
+        = f.submit "Add", class: "btn btn-xs btn-info pull-right"

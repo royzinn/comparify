@@ -6,6 +6,7 @@ describe User do
 
   it { should have_many(:topics) }
   it { should have_many(:answers) }
+  it { should have_many(:comments) }
   it { should have_many(:relationships) }
   it { should have_many(:followed_users) }
   it { should have_many(:comments) }
