@@ -1,6 +1,6 @@
 
 Comparify::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
   root "pages#home"
 
   get 'autocomplete_topic_tags', to: "topics#autocomplete_tag"
