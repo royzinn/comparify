@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~>4.0.0'
+gem 'rails', '~>4.1.0'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -23,6 +23,10 @@ gem 'rinku'
 gem 'gemoji'
 gem 'public_activity'
 gem 'acts-as-taggable-on'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -60,4 +64,4 @@ group :production do
   gem 'rails_12factor'
 end
 
-ruby "2.0.0"
+ruby "2.1.5"
